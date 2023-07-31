@@ -1,0 +1,20 @@
+
+
+ import 'package:flutter/material.dart';
+ int a = 16;
+voida main(
+{
+
+if (a>15){
+print('The number is less than $a');
+} else{
+print('The number is bigger than $a');
+}
+a > 15
+  ? print('The number is less than $a')
+  :print('The number is bigger than $a');
+  bool isBigger a
+
+
+
+
