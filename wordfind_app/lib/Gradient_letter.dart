@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class GradientLetter extends StatelessWidget {
-  const GradientLetter({super.key});
+  final String letter;
+  const GradientLetter(this.letter, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(5),
       width: 60,
       height: 60,
       decoration: BoxDecoration(
@@ -20,9 +22,18 @@ class GradientLetter extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               gradient: const LinearGradient(
-                  colors: [Color.fromRGBO(255, 144, 2, 0), Color(0xFFE48000)],
+                colors: [Color.fromRGBO(255, 144, 2, 0), Color(0xFFE48000)],
                 begin: Alignment.topLeft,
-
+                end: Alignment.bottomLeft,
+                stops: [-0.025, 1.6875],
+                transform: GradientRotation(180),
+              ),
+            ),
+            child: Center(
+              child: Text(
+                letter,
+                style: TextStyle(
+                    fontSize: 32, height: 52 / 38, color: Colors.white),
               ),
             ),
           ),
@@ -30,4 +41,5 @@ class GradientLetter extends StatelessWidget {
       ),
     );
   }
+
 }
