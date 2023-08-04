@@ -41,5 +41,4 @@ class GradientLetter extends StatelessWidget {
       ),
     );
   }
-
 }

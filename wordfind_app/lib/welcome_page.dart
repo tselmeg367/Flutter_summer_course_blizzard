@@ -18,7 +18,6 @@ class WelcomePage extends StatelessWidget {
                   GradientLetter('R'),
                   GradientLetter('D'),
                 ],
-
               ),
               GradientText('GAME', 31),
             ],
