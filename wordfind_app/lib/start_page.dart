@@ -3,8 +3,7 @@ import 'package:wordfind_app/gradient_text.dart';
 import 'package:wordfind_app/input_field.dart';
 import 'package:wordfind_app/user_model.dart';
 
-User newUser = User('Guest',0);
-
+User newUser = User('Guest', 0);
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -56,7 +55,9 @@ class _StartPageState extends State<StartPage> {
               Padding(
                 padding: EdgeInsets.only(top: 20),
               ),
-              InputField(),
+              InputField(
+                onSubmitted: _createUser,
+              ),
             ],
           ),
         ),
@@ -65,15 +66,13 @@ class _StartPageState extends State<StartPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
-  void _createUser(String userName ){
-   setState(() {
-     newUser.userName = userName;
-   });
 
+  void _createUser(String userName) {
+    setState(() {
+      newUser.userName = userName;
+    });
   }
 }
-
-
 
 class StartButton extends StatelessWidget {
   const StartButton(String text, {super.key});

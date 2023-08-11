@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
   final void Function(String) onSubmitted;
+
   const InputField({super.key, required this.onSubmitted});
 
   @override
@@ -10,6 +11,7 @@ class InputField extends StatefulWidget {
 
 class _InputFieldState extends State<InputField> {
   late TextEditingController _textEditingController;
+
   @override
   void initState() {
     super.initState();
