@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "107176774011",
+    "project_id": "lesson-day-20-tselmeg",
+    "storage_bucket": "lesson-day-20-tselmeg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107176774011:android:fe713bdfeb81ba5d94d5de",
+        "android_client_info": {
+          "package_name": "com.example.lesson_20_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107176774011-3tkkkm3kh1gdpmn3quehdd3crsjbn5im.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaFWabX-FYJIf85B25_4UKC7cVnrEuswU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107176774011-3tkkkm3kh1gdpmn3quehdd3crsjbn5im.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
