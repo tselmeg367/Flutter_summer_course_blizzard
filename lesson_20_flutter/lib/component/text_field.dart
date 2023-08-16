@@ -4,12 +4,14 @@ class TextFieldInput extends StatelessWidget {
   final String hintText;
   final bool isPassword;
   final TextEditingController textEditingController;
+  final TextInputType textInputType;
 
   const TextFieldInput(
       {super.key,
         required this.textEditingController,
         required this.hintText,
-        required this.isPassword});
+        required this.isPassword,
+        required this.textInputType });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class TextFieldInput extends StatelessWidget {
         filled: true,
         contentPadding: EdgeInsets.all(8),
       ),
-      keyboardType: TextInputType.text,
+      keyboardType: this.textInputType,
       obscureText: this.isPassword,
     );
   }
