@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/Auth_method.dart';
 import 'package:lesson_20_flutter/component/text_field.dart';
+import 'package:lesson_20_flutter/home_screen.dart';
+import 'package:lesson_20_flutter/pages/Signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,12 +25,18 @@ class _LoginScreenState extends State<LoginScreen> {
     if (result == 'success') {
       print('Logged in');
       setState(() {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
+
         _isLoading = false;
       });
     } else {
       print('Not logged in');
       setState(() {
         _isLoading = false;
+
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
       });
     }
   }
@@ -36,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(
@@ -51,8 +59,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(),
               ),
               Text(
-                'iCodegram',
-                style: TextStyle(color: Colors.black),
+                'ICodegram',
+                style: TextStyle(
+                    fontFamily: 'Lobster', fontSize: 34, color: Colors.white),
               ),
               SizedBox(
                 height: 64,
@@ -71,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   isPassword: true,
                   textInputType: TextInputType.text),
               SizedBox(
-                height: 64,
+                height: 50,
               ),
               InkWell(
                 onTap: loginUser,
@@ -85,14 +94,36 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.blue,
                   ),
                   child: Center(
-                    child: Text('Нэвтрэх'),
+                    child: _isLoading
+                        ? Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.white10,
+                            ),
+                          )
+                        : Text('Нэвтрэх'),
                   ),
                 ),
               ),
               SizedBox(
-                height: 12,
+                height: 20,
               ),
-              Flexible(flex: 2, child: Container())
+
+              Row(
+
+                children: [
+                Text('       Шинэ хэрэглэгч бол  ',style:TextStyle(color:Colors.grey),),
+                InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SignUp()));
+                },
+                child: Text('Энд',style: TextStyle(color: Colors.orange),),
+
+              ),
+                  Text('  дарж бүртгүүлэн үү ',style:TextStyle(color:Colors.grey),),
+              ],
+              ),
+              Flexible(flex: 2, child: Container()),
             ],
           ),
         ),

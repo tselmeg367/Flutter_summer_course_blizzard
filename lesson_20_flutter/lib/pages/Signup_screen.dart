@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/Auth_method.dart';
 import 'package:lesson_20_flutter/component/text_field.dart';
+import 'package:lesson_20_flutter/screens/login_screen.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -40,7 +41,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 Text(
                   'iCodegram',
-                  style: TextStyle(fontSize: 34),
+                  style: TextStyle(fontFamily: 'Lobster', fontSize: 34, fontWeight: FontWeight.w700),
                 ),
                 SizedBox(
                   height: 64,
@@ -87,6 +88,8 @@ class _SignUpState extends State<SignUp> {
                 ),
                 InkWell(
                   onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const LoginScreen()));
                     AuthMethods().LoginUser(
                         email: _emailController.text,
                         password: _passwordController.text);
@@ -113,6 +116,9 @@ class _SignUpState extends State<SignUp> {
               ],
             )),
       ),
+
+
+
     );
   }
 }

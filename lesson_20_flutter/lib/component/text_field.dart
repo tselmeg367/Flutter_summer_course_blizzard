@@ -18,7 +18,9 @@ class TextFieldInput extends StatelessWidget {
     return TextField(
       controller: this.textEditingController,
       decoration: InputDecoration(
-        hintText: this.hintText,
+        fillColor: Color(0x3B3B3B55),
+        labelText: hintText,
+        hintText: "$hintText",hintStyle: TextStyle(color: Colors.white),
         border:
         OutlineInputBorder(borderSide: Divider.createBorderSide(context)),
         focusedBorder:
@@ -30,6 +32,7 @@ class TextFieldInput extends StatelessWidget {
       ),
       keyboardType: this.textInputType,
       obscureText: this.isPassword,
+      style: TextStyle(color: Colors.white),
     );
   }
 }
