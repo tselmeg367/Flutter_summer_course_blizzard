@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/Auth_method.dart';
 import 'package:lesson_20_flutter/component/text_field.dart';
-import 'package:lesson_20_flutter/home_screen.dart';
 import 'package:lesson_20_flutter/pages/Signup_screen.dart';
+
+import 'Home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
