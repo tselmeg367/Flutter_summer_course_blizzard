@@ -11,7 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: SafeArea(
           child: Container(
         padding: EdgeInsets.symmetric(
@@ -24,9 +24,21 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               'iCodegram',
               style: TextStyle(
-                  fontFamily: 'Lobster', fontSize: 30, color: Colors.white),
+                  fontFamily: 'Lobster', fontSize: 30, color: Colors.black),
             ),
-          )
+          ),
+
+          CircleAvatar(
+            child: Container(
+              child: TextButton(
+                onPressed: (){},
+                child: Center(
+                  child: Icon(Icons.add, color: Colors.white, size: 25,),
+                ),
+              ),
+            ),
+          ),
+
         ]),
       )),
     );

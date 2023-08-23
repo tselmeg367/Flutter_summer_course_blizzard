@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_23_flutter/screens/home_screen.dart';
+
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -7,6 +7,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Text('Profile Screen'),

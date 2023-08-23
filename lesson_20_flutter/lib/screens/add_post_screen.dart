@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_23_flutter/screens/home_screen.dart';
 
 class AddPostScreen extends StatelessWidget {
   const AddPostScreen({super.key});
@@ -7,11 +6,11 @@ class AddPostScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: Center(
-          child: Text('Post '),
-        )
-      ),
+          child: Center(
+        child: Text('Post '),
+      )),
     );
   }
 }
