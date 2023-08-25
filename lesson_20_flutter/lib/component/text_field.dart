@@ -11,7 +11,7 @@ class TextFieldInput extends StatelessWidget {
         required this.textEditingController,
         required this.hintText,
         required this.isPassword,
-        required this.textInputType });
+        required this.textInputType, required bool obsecureText });
 
   @override
   Widget build(BuildContext context) {

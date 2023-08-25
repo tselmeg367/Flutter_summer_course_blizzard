@@ -1,10 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/Auth_method.dart';
-import 'package:lesson_20_flutter/component/text_field.dart';
 import 'package:lesson_20_flutter/layouts/screen_layouts.dart';
 import 'package:lesson_20_flutter/pages/Signup_screen.dart';
 
-import 'Home_screen.dart';
+import '../component/text_field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,32 +16,28 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  bool _isLoading = false;
 
-  void loginUser() async {
+  loginUser() async {
     setState(() {
       _isLoading = true;
     });
+
     String result = await AuthMethods().LoginUser(
         email: _emailController.text, password: _passwordController.text);
-    if (result == 'success') {
-      print('Logged in');
+    if (result == 's') {
       setState(() {
+        _isLoading = false;
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const ScreenLayout()));
-
-        _isLoading = false;
       });
     } else {
-      print('Not logged in');
       setState(() {
         _isLoading = false;
-
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ScreenLayout()));
       });
     }
   }
+
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,83 +45,76 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: 32,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(
-                flex: 2,
-                child: Container(),
-              ),
-              Text(
-                'ICodegram',
-                style: TextStyle(
-                    fontFamily: 'Lobster', fontSize: 34, color: Colors.white),
-              ),
-              SizedBox(
+              Flexible(flex: 2, child: Container()),
+              const Text('ICodegram', style: TextStyle(fontSize: 40, fontFamily: 'Lobster', color: Colors.white),),
+              const SizedBox(
                 height: 64,
               ),
               TextFieldInput(
-                  textEditingController: _emailController,
                   hintText: 'Enter your email',
-                  isPassword: false,
-                  textInputType: TextInputType.emailAddress),
-              SizedBox(
-                height: 30,
+                  obsecureText: false,
+                  textEditingController: _emailController,
+                  textInputType: TextInputType.emailAddress, isPassword: false,),
+              const SizedBox(
+                height: 24,
               ),
               TextFieldInput(
-                  textEditingController: _passwordController,
                   hintText: 'Enter your password',
-                  isPassword: true,
-                  textInputType: TextInputType.text),
-              SizedBox(
-                height: 50,
+                  obsecureText: true,
+                  textEditingController: _passwordController,
+                  textInputType: TextInputType.text, isPassword: true,),
+              const SizedBox(
+                height: 24,
               ),
               InkWell(
-                onTap: loginUser,
+                onTap: () {
+                  loginUser();
+                },
                 child: Container(
                   width: double.infinity,
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 12),
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(4))),
-                    color: Colors.blue,
-                  ),
-                  child: Center(
-                    child: _isLoading
-                        ? Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white10,
-                            ),
-                          )
-                        : Text('Нэвтрэх'),
-                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: const ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                      ),
+                      color: Colors.deepOrange),
+                  child: _isLoading
+                      ? const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                      ))
+                      : const Text('Login', style: TextStyle(fontFamily: 'Rubik'),),
                 ),
               ),
-              SizedBox(
-                height: 20,
+              const SizedBox(
+                height: 24,
+              ),
+              const Center(
+                child: Text('Эсвэл', style: TextStyle(fontSize: 20),),
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Шинэ хэрэглэгч үү? ', style: TextStyle(fontSize: 15, fontFamily: 'Rubik')),
+                      InkWell(onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp()));
+                      }, child: const Text('Бүртгүүлэх', style: TextStyle(fontSize: 15, fontFamily: 'Rubik', color: Colors.deepOrange),))
+                    ],
+                  )
               ),
 
-              Row(
-
-                children: [
-                Text('       Шинэ хэрэглэгч бол  ',style:TextStyle(color:Colors.grey),),
-                InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const SignUp()));
-                },
-                child: Text('Энд',style: TextStyle(color: Colors.orange),),
-
-              ),
-                  Text('  дарж бүртгүүлэн үү ',style:TextStyle(color:Colors.grey),),
-              ],
-              ),
               Flexible(flex: 2, child: Container()),
+
             ],
           ),
         ),
